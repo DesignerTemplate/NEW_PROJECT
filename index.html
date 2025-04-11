@@ -1,1 +1,79 @@
+import { View } from 'utopia-api'
+import '../public/globals.css'
 
+export var Playground = ({ style }) => {
+  return (
+    <View
+      style={{
+        padding: 20,
+        backgroundColor: '#f4f7f9',
+        height: '100%',
+        width: '100%',
+        fontFamily: 'Inter, sans-serif',
+        ...style,
+      }}
+    >
+      <View
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: 20,
+        }}
+      >
+        <h1 style={{ fontSize: 24, color: '#2c3e50' }}>My Projects</h1>
+        <button
+          style={{
+            backgroundColor: '#4CAF50',
+            color: 'white',
+            padding: '10px 16px',
+            border: 'none',
+            borderRadius: 6,
+            fontSize: 14,
+            cursor: 'pointer',
+          }}
+          onClick={() => alert('New project clicked!')}
+        >
+          + New Project
+        </button>
+      </View>
+
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+          gap: 20,
+        }}
+      >
+        <ProjectCard
+          title="Utopia Redesign"
+          description="Revamping the UI/UX of the main app interface."
+        />
+        <ProjectCard
+          title="Community Hub"
+          description="A space for users to connect and collaborate."
+        />
+        <ProjectCard
+          title="AI Assistant"
+          description="Integrating GPT-powered assistant into the platform."
+        />
+      </div>
+    </View>
+  )
+}
+
+const ProjectCard = ({ title, description }) => {
+  return (
+    <div
+      style={{
+        backgroundColor: 'white',
+        padding: 20,
+        borderRadius: 10,
+        boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
+      }}
+    >
+      <h2 style={{ fontSize: 16, fontWeight: '600', marginBottom: 8 }}>{title}</h2>
+      <p style={{ fontSize: 14, color: '#555' }}>{description}</p>
+    </div>
+  )
+}
